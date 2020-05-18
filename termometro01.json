@@ -1,0 +1,12 @@
+{
+    "data":{
+        "description": "termometro",
+        "capabilities": [
+            "teste-bruno"],
+        "lat":0.0,
+        "lon":0.0,
+        "status": "active",
+        "collect_interval": 10
+    }
+
+}
