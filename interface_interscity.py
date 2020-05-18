@@ -23,12 +23,25 @@ def criar_or_update_capabilitie () :
 
 def criar_resource () :
     print("criando resource")
+    data = {"data": {"description": "Termostato","capabilities": ["termostato"],"status": "active","lat": -23.559616,"lon": -46.731386}}
+    r = requests.post("http://34.95.169.45:8000/catalog/resources", data=data)
+    print(r)
+    print(r.content)
 
+def atualizar_resource():
+    print("atualizar resource")
+    uuid = input("entre com o uuid")
+    data = {"data": {"description": "Teste de capabilities updated", "capabilities": ["illuminate"], "status": "inactive", "lat": -23.559616, "lon": -46.731386}}
+    r = requests.put(f"http://34.95.169.45:8000/catalog/resources/{uuid}", data=data)
+    print(r)
+    print(r.content)
+
+
+def actuator_command() :
+    print("actuator command")
+    data = {"data": [{"uuid": "45e9d1cc-f373-4d8b-bab2-c02cf017d830","capabilities": {"temperature": "67"}}]}
+    r = requests.post("http://34.95.169.45:8000/actuator/commands", data=data)
     
 
-    
-    
-
-
-criar_or_update_capabilitie()
+criar_resource()
 
