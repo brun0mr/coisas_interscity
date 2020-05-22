@@ -24,7 +24,7 @@ def criar_or_update_capabilitie () :
 def criar_resource () :
     print("criando resource")
     data = {"data": {"description": "Termostato","capabilities": ["termostato"],"status": "active","lat": -23.559616,"lon": -46.731386}}
-    r = requests.post("http://34.95.169.45:8000/catalog/resources", data=data)
+    r = requests.post("http://34.95.169.45:8000/adaptor/resources", data=data)
     print(r)
     print(r.content)
 
@@ -32,7 +32,7 @@ def atualizar_resource():
     print("atualizar resource")
     uuid = input("entre com o uuid")
     data = {"data": {"description": "Teste de capabilities updated", "capabilities": ["illuminate"], "status": "inactive", "lat": -23.559616, "lon": -46.731386}}
-    r = requests.put(f"http://34.95.169.45:8000/catalog/resources/{uuid}", data=data)
+    r = requests.put(f"http://34.95.169.45:8000/adaptor/resources/{uuid}", data=data)
     print(r)
     print(r.content)
 
