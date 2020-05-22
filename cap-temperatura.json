@@ -1,7 +1,0 @@
-{
-    
-    "name": "teste-bruno",
-    "description": "graus celsius (int)",
-    "capability_type": "sensor"
-
-}
