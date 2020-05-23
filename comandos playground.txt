@@ -22,3 +22,6 @@ curl http://34.95.169.45:8000/collector/resources/data | json_pp -f json
 
 url servidor 34.95.169.45:8000
 
+
+
+{"data": {"environment_monitoring": [{"teste": 10,"timestamp": "2017-06-14T17:52:25.428Z"}]}}

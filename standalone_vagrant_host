@@ -3,14 +3,14 @@ all:
     gateway:
       hosts:
         gateway-machine:
-          ansible_host: 18.231.108.181
-          ansible_user: admin
+          ansible_host: 34.95.169.45
+          ansible_user: kali
           ansible_ssh_private_key_file: ~/.ssh/id_rsa
     swarm-manager:
       hosts:
         swarm-manager-machine:
-          ansible_host: 18.231.108.181
-          ansible_user: admin
+          ansible_host: 34.95.169.45
+          ansible_user: kali
           ansible_ssh_private_key_file: ~/.ssh/id_rsa
           swarm_node_name: manager
       vars:
@@ -25,8 +25,8 @@ all:
       hosts:
         gateway-machine:
   vars:
-    kong: 18.231.108.181
-    rabbitmq: 18.231.108.181
-    mongo: 18.231.108.181
-    postgres_host: 18.231.108.181
-    swarm_manager_ip: 18.231.108.181
+    kong: 34.95.169.45
+    rabbitmq: 34.95.169.45
+    mongo: 34.95.169.45
+    postgres_host: 34.95.169.45
+    swarm_manager_ip: 34.95.169.45
