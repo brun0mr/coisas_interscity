@@ -11,11 +11,8 @@ def on_message(client, userdata, message):
     data = datetime.datetime.utcnow().isoformat()
     print("a mensagem recebida foi :" + temp)
     print("Mandando para o interscity...")
-    payload = '{"data":{"environment_monitoring":[{"temperature": "30.0","timestamp": "13/04/2020T109:29:00"}]}}'
-    y = json.loads(payload)
-    y["data"]["environment_monitoring"][0]["temperature"] = temp
-    y["data"]["environment_monitoring"][0]["timestamp"] = data
-    r = requests.post('http://34.95.169.45:8000/adaptor/resources/45e9d1cc-f373-4d8b-bab2-c02cf017d830', data=y)
+    payload = '{"data": {"environment_monitoring": [{"teste": %s,"timestamp": "%s"}]}}' %(temp, data)
+    r = requests.post("http://34.95.169.45:8000/adaptor/resources/efdf3513-2235-4aee-a59f-28dce7053f6e/data", data = json.dumps(y), headers=headers)
     print("postado no interscity")
     print(r)
     print(r.content)

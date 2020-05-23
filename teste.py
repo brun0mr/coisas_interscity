@@ -2,9 +2,17 @@ import requests
 import datetime
 
 
+'''
+inf = '{"data": {"environment_monitoring": [{"teste": 11,"timestamp": "2020-05-23T13:52:25.428Z"}]}}'
+headers = {'content-Type': 'application/json'}
 
-inf = {"data": {"environment_monitoring": [{"temperature": 10,"timestamp": "2020-005-22T13:52:25.428Z"}]}}
 
-r = requests.post("http://34.95.169.45:8000/adaptor/resources/45e9d1cc-f373-4d8b-bab2-c02cf017d830/data", data = inf)
+r = requests.post("http://34.95.169.45:8000/adaptor/resources/efdf3513-2235-4aee-a59f-28dce7053f6e/data", data = inf, headers=headers)
 print(r)
 print(r.content)
+'''
+
+temp = 22
+data = datetime.datetime.utcnow().isoformat()
+payload = '{"data": {"environment_monitoring": [{"teste": %d,"timestamp": "%s"}]}}' %(temp, data)
+print (payload)

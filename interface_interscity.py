@@ -23,7 +23,7 @@ def criar_or_update_capabilitie () :
 
 def criar_resource () :
     print("criando resource")
-    data = {"data": {"description": "Termostato","capabilities": ["termostato"],"status": "active","lat": -23.559616,"lon": -46.731386}}
+    data = {"data": {"description": "teste","capabilities": ["teste"],"status": "active","lat": -23.559616,"lon": -46.731386}}
     r = requests.post("http://34.95.169.45:8000/adaptor/resources", data=data)
     print(r)
     print(r.content)
@@ -43,5 +43,5 @@ def actuator_command() :
     r = requests.post("http://34.95.169.45:8000/actuator/commands", data=data)
     
 
-criar_resource()
+criar_resource ()
 
