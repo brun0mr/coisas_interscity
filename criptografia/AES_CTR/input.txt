@@ -1,0 +1,1 @@
+{"data":{"environment_monitoring":[{"temperature": "30.0","timestamp": "13/04/2020T109:29:00"}]}}
