@@ -17,9 +17,8 @@ def decrypt_message(key, ciphertext):
     aes = AES.new(key, AES.MODE_CTR, counter=ctr)
     return aes.decrypt(ciphertext[16:])
 
-message =  encrypt_message('2FE60AD49E653D149BC6A9D260B01A8F', "oi meu nome e bruno")
+message =  encrypt_message('2FE60AD49E653D149BC6A9D260B01A8F', "hello")
 print(f'a mensagem criptografada e {message}')
-print(type(message))
 
 message = decrypt_message('2FE60AD49E653D149BC6A9D260B01A8F', message)
 print(f'a mensagem descriptografada e {message}')

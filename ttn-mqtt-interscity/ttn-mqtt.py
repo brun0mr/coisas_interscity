@@ -7,6 +7,7 @@ access_key = "ttn-account-v2.fHGl_rxiFcUUAr96fOzO0_caeTflopfdVAfU1TGm6h8"
 def uplink_callback(msg, client):
   print("Received uplink from ", msg.dev_id)
   print(msg)
+  print(msg.payload)
 
 handler = ttn.HandlerClient(app_id, access_key)
 
