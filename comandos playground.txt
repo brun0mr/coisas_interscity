@@ -20,7 +20,7 @@ curl -H "Content-Type: application/json" -X POST -d '{"data": [{"temperature": 1
 
 curl http://34.95.169.45:8000/collector/resources/data | json_pp -f json
 
-url servidor 34.95.169.45:8000
+url servidor novo 34.95.144.147:8000
 
 
 

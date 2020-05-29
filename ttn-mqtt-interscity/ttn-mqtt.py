@@ -1,13 +1,13 @@
 import time
 import ttn
+import base64
 
-app_id = "teste-brunomr"
-access_key = "ttn-account-v2.fHGl_rxiFcUUAr96fOzO0_caeTflopfdVAfU1TGm6h8"
+app_id = "waste_management"
+access_key = "ttn-account-v2.UM5JNRERzx9aZhppyqmi9-PxW8fvD9fir2xAZRsjiEA"
 
 def uplink_callback(msg, client):
   print("Received uplink from ", msg.dev_id)
   print(msg)
-  print(msg.payload)
 
 handler = ttn.HandlerClient(app_id, access_key)
 
