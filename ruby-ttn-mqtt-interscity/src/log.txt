@@ -1,0 +1,2 @@
+Message arrived in:2020-06-11T21:00:40Z - Topic: /652cb918-c660-48d2-8ae6-a907f3b7ffe1/data/temperatura message: 11 response code :201.
+Message arrived in:2020-06-11T21:01:14Z - Topic: /652cb918-c660-48d2-8ae6-a907f3b7ffe1/data/temperatura message: 11 response code :201.
