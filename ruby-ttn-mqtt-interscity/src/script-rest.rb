@@ -18,27 +18,38 @@ client.get do |topic, message|
   payload_raw = message.scan /"payload_raw":"(\w+\S{0,3})"/
   dev_id = dev_id[0][0]
   payload_raw = payload_raw[0][0]
+  puts "\n"
+  puts "payload e dev_id separados"
+  puts "\n"
+  puts response["resources"],"oi"
+  puts "\n"
   response["resources"].each do |i| 
     if(i["description"] === dev_id)
         uuid = i["uuid"]
         capabilities = i["capabilities"]
-        break
     end
   end
-
+  puts "\n"
+  puts uuid
+  puts "\n"
+  puts capabilities[0]
+  puts "\n"
   data = {"data": {"environment_monitoring": [{"#{capabilities[0]}": payload_raw,"timestamp": Time.now.utc.iso8601}]}}
- 
+  puts "\n"
+  puts  data
+  puts "\n"
   response = HTTParty.post("http://34.95.144.147:8000/adaptor/resources/#{uuid}/data", :headers => {'content-type': 'application/json'}, :body => data.to_json)
-
+  
   puts response.code
+  puts "\n"
   if (response.code == 201)
     puts "Mensagem encaminhada para o interscity!"
   else 
     puts "Erro!"
   end
-  File.open("log.txt", "a") { |f| f.write "Message arrived in:#{Time.now.utc.iso8601} - Topic: #{topic} message: #{message} response code :#{response.code}.\n\n" }
+  # File.open("log.txt", "a") { |f| f.write "Message arrived in:#{Time.now.utc.iso8601} - Topic: #{topic} message: #{message} response code :#{response.code}.\n\n" }
 end
 
 
-#topic default /{uuid}/data/{capabilitie}
-#/652cb918-c660-48d2-8ae6-a907f3b7ffe1/data/temperatura
+# topic default /{uuid}/data/{capabilitie}
+# /652cb918-c660-48d2-8ae6-a907f3b7ffe1/data/temperatura
