@@ -6,7 +6,7 @@ topico = "#"
 uuid = ""
 capabilities = ""
 
-response = HTTParty.get("http://34.95.144.147:8000/catalog/resources", :headers => {'content-type': 'application/json'})
+RESPONSE = HTTParty.get("http://34.95.144.147:8000/catalog/resources", :headers => {'content-type': 'application/json'})
 
 client = MQTT::Client.connect(:host => 'brazil.thethings.network', :port => 1883, :username => 'misiot', :password => 'ttn-account-v2.ck6KZ_cV4Ls8T12G2QXCKzN5szKVSs0-oxvNrdx9ZIw')
 
@@ -21,10 +21,8 @@ client.get do |topic, message|
   puts "\n"
   puts "payload e dev_id separados"
   puts "\n"
-  puts response["resources"],"oi"
-  puts "\n"
-  response["resources"].each do |i| 
-    if(i["description"] === dev_id)
+  RESPONSE["resources"].each do |i| 
+    if(i["description"] == dev_id)
         uuid = i["uuid"]
         capabilities = i["capabilities"]
     end
@@ -38,16 +36,16 @@ client.get do |topic, message|
   puts "\n"
   puts  data
   puts "\n"
-  response = HTTParty.post("http://34.95.144.147:8000/adaptor/resources/#{uuid}/data", :headers => {'content-type': 'application/json'}, :body => data.to_json)
+  r = HTTParty.post("http://34.95.144.147:8000/adaptor/resources/#{uuid}/data", :headers => {'content-type': 'application/json'}, :body => data.to_json)
   
-  puts response.code
+  puts r.code
   puts "\n"
-  if (response.code == 201)
+  if (r.code == 201)
     puts "Mensagem encaminhada para o interscity!"
   else 
     puts "Erro!"
   end
-  # File.open("log.txt", "a") { |f| f.write "Message arrived in:#{Time.now.utc.iso8601} - Topic: #{topic} message: #{message} response code :#{response.code}.\n\n" }
+  #File.open("log.txt", "a") { |f| f.write "Message arrived in:#{Time.now.utc.iso8601} to uuid:#{uuid} - Topic: #{topic} message: #{message} response code :#{r.code}.\n\n" }
 end
 
 
